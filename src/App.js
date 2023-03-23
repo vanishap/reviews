@@ -1,12 +1,16 @@
+import Review from "./Review";
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      
-      
-    </div>
+    <main >
+      <section className="container">
+        <div className="title">
+          <h2>Reviews</h2>
+        </div>
+      <Review />
+      </section>
+    </main>
   );
 }
 
