@@ -29,6 +29,11 @@ const Review= ()=>{
             return lengthCheck(currIndex);
         })    
      };
+//function to display random review
+     const surpriseReview= ()=>{
+        let randomNumber = Math.floor(Math.random() * reviews.length-1) +1;
+        setIndex(randomNumber);
+     }
     return(
         <article className='review'>
           <div className="img-container">
@@ -48,7 +53,7 @@ const Review= ()=>{
                 <FaChevronRight />
             </button>
             </div>
-            <button className='random-btn'>Surprise Me</button>      
+            <button className='random-btn' onClick={surpriseReview}>Surprise Review</button>      
         </article>   
     )
 }
