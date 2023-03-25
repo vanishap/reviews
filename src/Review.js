@@ -6,17 +6,27 @@ const Review= ()=>{
     const [index, setIndex] = useState(0);
     const {name,job,image,text} = reviews[index];
     
+    const lengthCheck = (number)=>{
+        if(number < 0){
+            return reviews.length-1
+        }
+        if(number > reviews.length-1){
+            return 0;
+        }
+        return number;
+    };
+
      const prevReview = ()=>{
         setIndex((index)=>{
             let currIndex = index + 1;
-            return currIndex;
+            return lengthCheck(currIndex);
         })  
      };
 
     const nextReview = ()=>{
         setIndex((index)=>{
             let currIndex = index - 1;
-            return currIndex;
+            return lengthCheck(currIndex);
         })    
      };
     return(
