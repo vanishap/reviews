@@ -5,7 +5,20 @@ import { useState } from 'react';
 const Review= ()=>{
     const [index, setIndex] = useState(0);
     const {name,job,image,text} = reviews[index];
-     
+    
+     const prevReview = ()=>{
+        setIndex((index)=>{
+            let currIndex = index + 1;
+            return currIndex;
+        })  
+     };
+
+    const nextReview = ()=>{
+        setIndex((index)=>{
+            let currIndex = index - 1;
+            return currIndex;
+        })    
+     };
     return(
         <article className='review'>
           <div className="img-container">
@@ -18,10 +31,10 @@ const Review= ()=>{
             <p className='job'>{job}</p>
             <p className='info'>{text}</p> 
             <div className='button-container'>
-            <button className='prev-btn'>
+            <button className='prev-btn' onClick={prevReview}>
                 <FaChevronLeft />
             </button>
-            <button className='next-btn'>
+            <button className='next-btn' onClick={nextReview}>
                 <FaChevronRight />
             </button>
             </div>
