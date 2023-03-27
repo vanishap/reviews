@@ -6,19 +6,34 @@ const Review= ()=>{
     const [index, setIndex] = useState(0);
     const {name,job,image,text} = reviews[index];
     
+    const lengthCheck = (number)=>{
+        if(number < 0){
+            return reviews.length-1
+        }
+        if(number > reviews.length-1){
+            return 0;
+        }
+        return number;
+    };
+
      const prevReview = ()=>{
         setIndex((index)=>{
             let currIndex = index + 1;
-            return currIndex;
+            return lengthCheck(currIndex);
         })  
      };
 
     const nextReview = ()=>{
         setIndex((index)=>{
             let currIndex = index - 1;
-            return currIndex;
+            return lengthCheck(currIndex);
         })    
      };
+//function to display random review
+     const surpriseReview= ()=>{
+        let randomNumber = Math.floor(Math.random() * reviews.length-1) +1;
+        setIndex(randomNumber);
+     }
     return(
         <article className='review'>
           <div className="img-container">
@@ -38,7 +53,7 @@ const Review= ()=>{
                 <FaChevronRight />
             </button>
             </div>
-            <button className='random-btn'>Surprise Me</button>      
+            <button className='random-btn' onClick={surpriseReview}>Random Review</button>      
         </article>   
     )
 }
