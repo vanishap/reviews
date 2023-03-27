@@ -53,7 +53,7 @@ const Review= ()=>{
                 <FaChevronRight />
             </button>
             </div>
-            <button className='random-btn' onClick={surpriseReview}>Surprise Review</button>      
+            <button className='random-btn' onClick={surpriseReview}>Random Review</button>      
         </article>   
     )
 }
